@@ -30,7 +30,7 @@ export default function Calculator() {
     ['=', () => equals()]
   ]
 
-  
+
   function addNumber(x) {
     setExpression(expression + x)
   }
@@ -55,7 +55,10 @@ export default function Calculator() {
 
 
   function addSymbol(s) {
-    if (!['', ' '].includes(expression.substr(-1)))
+    if (' - ' === s && !expression.substr(-1))
+        setExpression(expression + '-')
+
+    else if (!['', ' '].includes(expression.substr(-1)))
       setExpression(expression + s)
   }
 
